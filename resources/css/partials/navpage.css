@@ -1,0 +1,134 @@
+.nav-pages{
+     background-color: #ffffff;
+     border-bottom: 0.5px solid rgba(224, 224, 224, 0.69);
+     display: flex;
+     z-index: 1;
+     flex-direction: column;
+     justify-content: start;
+     position: fixed;
+     box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1);
+     -webkit-box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1);
+     -moz-box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1);
+} 
+.nav-pages .top{
+     display: flex;
+     flex-direction: row;
+     justify-content: start;
+     padding: 3%;
+     width: 50%;
+}   
+.nav-pages .logo {
+     margin-right: 5%;
+}
+.nav-pages .logo img {
+     width: 160px;
+}
+.nav-pages .search-bar{
+     width: 100%;
+     display: flex;
+     flex-direction: row;
+    
+}
+.nav-pages .search-bar .input-search {
+     border-radius: 30px;
+     border: transparent;
+     width: 130%;
+     box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1);
+     
+}
+.nav-pages .search-bar .icone-search {
+     margin-left: -12%;
+     margin-top: 3%;
+     background-color: transparent;
+     cursor: pointer;
+}
+
+
+/* module scroll slide */
+.card-modules{
+     max-width: 100%;
+     overflow-x: hidden;
+     margin: 0 auto;
+     position: relative;
+     padding: 6px;
+}
+.card-modules .icon{
+     position: absolute;
+     top: 0;
+     height: 100%;
+     width: 120px;
+     display: flex;
+     align-items: center;
+}
+
+
+.icon:first-child{
+     left: 0;
+     background: linear-gradient(90deg, #ffffff 70%, transparent);
+     display: none;
+    
+}
+.icon:last-child{
+     right: 0;
+     justify-content: flex-end;
+     background: linear-gradient(-90deg, #ffffff 70%, transparent);
+     
+}
+
+.icon iconify-icon{
+     width: 55px;
+     height: 55px;
+     cursor: pointer;
+     font-size: 1.2rem;
+     text-align: center;
+     line-height: 55px;
+     border-radius: 50%;
+}
+.icon iconify-icon:hover{
+     background: #d8d5f2;
+}
+
+.icon:first-child iconify-icon{
+     margin-left: 15px;
+     
+}
+.icon:last-child iconify-icon{
+     margin-right: 15px;
+}
+.card-modules .tabs-box {
+     display: flex;
+     list-style: none;
+     gap: 12px;
+     overflow-x: hidden;
+     margin-bottom: 12px;
+     scroll-behavior: smooth;  
+}
+.tabs-box .dragging{
+     scroll-behavior: auto;
+     cursor: grab; 
+}
+.tabs-box .dragging .tab{
+     scroll-behavior: auto;
+     cursor: grab; 
+     user-select: none;
+}
+
+.card-modules .tab{
+     cursor: pointer;
+     font-size: 1.18rem;
+     white-space: nowrap;
+     background-color: #f5f4fd;
+     padding: 6px 10px;
+     border-radius: 30px;
+     border: 1px solid #d8d5f2;
+}
+
+@media only screen and (max-width: 900px){
+
+     .nav-pages .top{
+          width: 90%;
+          display: flex;
+          flex-direction: row;
+         justify-content: space-between;
+     }
+}

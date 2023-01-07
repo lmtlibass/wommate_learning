@@ -1,0 +1,26 @@
+
+.cour-section{
+     display: flex ;
+     flex-direction: row;
+     flex-wrap: wrap ;
+     justify-content: space-between;
+}
+.cour-section .bar-menu {
+     margin-left: 20px;
+     margin-top: 10%;
+     padding: 2%;
+     padding-top: 1%;
+     width: 300px !important;
+     background-color: #fff;
+     position: absolute;
+     height: 65vh;
+     overflow: auto;
+     z-index: 0;
+     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+     border-radius: 12px;
+}
+
+
+
+
+ 
