@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CourController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 // use App\Http\Controllers\Admin\UserController;
@@ -27,4 +28,8 @@ Route::get('home', [App\Http\Controllers\HomeController::class, 'index'])->name(
 Route::namespace('App\Http\Controllers\Admin')->prefix('admin')->name('admin.')->group(function() {
     
     Route::resource('user', UserController::class);
+});
+
+Route::namespace('App\Http\Controllers')->group(function(){
+    Route::resource('cour', CourController::class);
 });
