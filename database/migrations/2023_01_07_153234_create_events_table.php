@@ -18,6 +18,10 @@ return new class extends Migration
             $table->string('description');
             $table->string('media');
             $table->dateTime('eventDate');
+            $table->foreignId('cour_id')
+                ->constrained()
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
             $table->timestamps();
         });
     }

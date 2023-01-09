@@ -19,6 +19,10 @@ return new class extends Migration
             $table->integer('number');
             $table->longText('description');
             $table->string('content');
+            $table->foreignId('cour_id')
+                ->constrained()
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
             $table->timestamps();
         });
     }

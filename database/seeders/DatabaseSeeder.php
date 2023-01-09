@@ -4,7 +4,10 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Database\Seeders\CourTableSeeder;
 use Database\Seeders\RolesTableSeeder;
+use Database\Seeders\ModuleTableSeeder;
+use Database\Seeders\ChapitreTableSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -24,5 +27,8 @@ class DatabaseSeeder extends Seeder
 
         $this->call(RolesTableSeeder::class);
         $this->call(UsersTableSeeder::class);
+        $this->call(ModuleTableSeeder::class);
+        $this->call(CourTableSeeder::class);
+        $this->call(ChapitreTableSeeder::class);
     }
 }

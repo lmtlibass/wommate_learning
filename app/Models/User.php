@@ -3,7 +3,11 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\Cour;
+use App\Models\Like;
 use App\Models\Role;
+use App\Models\Event;
+use App\Models\Comment;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -49,4 +53,18 @@ class User extends Authenticatable
     public function roles(){
         return $this->belongsToMany(Role::class);
     }
+    public function comments(){
+        return $this->hasMany(Comment::class);
+    }
+    public function likes(){
+        return $this->hasMany(Like::class);
+    }
+    public function cours(){
+        return $this->hasMany(Cour::class);
+    }
+    public function Events(){
+        return $this->hasMany(Event::class);
+    }
+    
+
 }
