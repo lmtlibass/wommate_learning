@@ -25,6 +25,7 @@
             @endforelse 
         </div>
     </section> --}}
+
      <div class="container mt-24">
 
           <div class="main-video">
@@ -33,37 +34,15 @@
                     <h3 class="title">01. Introduction</h3>
                </div>
           </div>
-
-          <div class="video-list">
-               <div class="vid active">
-                    <video src="videos/vid1.mkv" controls muted autoplay></video>
-                    <h3 class="title">01. Chapitr1</h3>
-               </div>
-               <div class="vid">
-                    <video src="videos/vid2.mkv" controls muted autoplay></video>
-                    <h3 class="title">02. Chapitr1</h3>
-               </div>
-               <div class="vid">
-                    <video src="videos/vid3.mkv" controls muted autoplay></video>
-                    <h3 class="title">03. Chapitr2</h3>
-               </div>
-               <div class="vid">
-                    <video src="videos/vid4.mkv" controls muted autoplay></video>
-                    <h3 class="title">04. Chapitr3</h3>
-               </div>
-               <div class="vid">
-                    <video src="videos/vid4.mkv" controls muted autoplay></video>
-                    <h3 class="title">05. Chapitr3</h3>
-               </div>
-               <div class="vid">
-                    <video src="videos/vid4.mkv" controls muted autoplay></video>
-                    <h3 class="title">06. Chapitr3</h3>
-               </div>
-               <div class="vid">
-                    <video src="videos/vid4.mkv" controls muted autoplay></video>
-                    <h3 class="title">07. Chapitr3</h3>
-               </div>
-          </div>
+            <div class="video-list">
+                <div class="vid active">
+                    @forelse ($chapitres as $chapitre)
+                        <video src="{{ $chapitre->content }}" controls muted autoplay></video>
+                        <h3 class="title">{{ $chapitre->title }}</h3>
+                        @empty
+                        'nothing'
+                   @endforelse
+                </div>
+            </div>
      </div>
 @endsection
-

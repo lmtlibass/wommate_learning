@@ -56,14 +56,11 @@ class CourController extends Controller
     public function show(Cour $cour)
     {
         //
-        $cour      =  Cour::find($cour);
+        return $cour = Cour::find($cour);
         // $chapitre = new Chapitre();
         // $chapitres = $chapitre->chapitres($cour);
+  
 
-        dd($chapitres = route('chapitres', 1));
-        
-
-        return view('cour.chapitre', compact('chapitres', 'cour'));
     }
 
     /**

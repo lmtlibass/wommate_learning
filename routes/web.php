@@ -34,5 +34,5 @@ Route::namespace('App\Http\Controllers\Admin')->prefix('admin')->name('admin.')-
 Route::namespace('App\Http\Controllers')->group(function(){
     Route::resource('cour', CourController::class);
     Route::resource('chapitre', ChapitreController::class);
-    Route::get('chapitre\{id_cour}', [ChapitreController::class, 'chapitres'])->name('chapitres');
+    Route::get('chapitres/{id_cour}', [ChapitreController::class, 'chapitres'])->name('chapitres');
 });

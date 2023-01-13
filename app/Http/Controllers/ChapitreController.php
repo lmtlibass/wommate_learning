@@ -20,9 +20,16 @@ class ChapitreController extends Controller
     }
 
     public function chapitres($id){
-        $chapitres = Chapitre::where('cour_id', '=', $id);
 
-        return $chapitres;
+        
+        $cour = Cour::find($id);
+        
+        // $chapitres = Chapitre::where('cour_id', '=', $cour->id);
+        $chapitres = $cour->chapitres;
+
+        
+        
+        return view('cour.chapitre', compact('chapitres'));
     }
    
 

@@ -68,15 +68,15 @@
                             {{$cour->title}}</h5>
                     </a>
                     
-                    <a href="{{route('cour.show', $cour->id)}}" type="button" class="text-white bg-gradient-to-r from-teal-400 via-teal-500 to-teal-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-teal-300 dark:focus:ring-teal-800 font-medium rounded-lg text-sm w-36 text-center " >
+                    <a href="{{route('chapitres', $cour->id)}}" type="button" class="text-white bg-gradient-to-r from-teal-400 via-teal-500 to-teal-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-teal-300 dark:focus:ring-teal-800 font-medium rounded-lg text-sm w-36 text-center " >
                         Voir cours</a>
 
                 </div>
 
             @endforeach
-            {{-- <div class="  float-right px-14 h-10 w-full">
+            <div class="  float-right px-14 h-10 w-full">
                 {{ $cours->links() }}
-            </div> --}}
+            </div>
         </div>
 
         
