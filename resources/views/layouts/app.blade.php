@@ -81,50 +81,75 @@
 
 <!doctype html>
 <html>
+
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>@yield('title') | {{ config('app.name') }}</title>
-  <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.4/dist/flowbite.min.css" />
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
-  @vite('resources/css/app.css')
-  @stack('style')
-  <link href="/css/app.css" rel="stylesheet">
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            clifford: '#fffff',
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>@yield('title') | {{ config('app.name') }}</title>
+     <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.4/dist/flowbite.min.css" />
+     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+          integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+     </script>
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+          integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous">
+     </script>
+     @vite('resources/css/app.css')
+     @stack('style')
+     <link href="/css/app.css" rel="stylesheet">
+     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+     <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
+     <script>
+          tailwind.config = {
+               theme: {
+                    extend: {
+                         colors: {
+                              clifford: '#fffff',
+                         }
+                    }
+               }
           }
-        }
-      }
-    }
-  </script>
+     </script>
 </head>
+
 <body>
-  <header>
-    @yield('header')
-  </header>
-  <main>
-    @yield('content')
-  </main>
-  <footer>
-    @yield('footer')
-  </footer>
+     <header>
+          @yield('header')
+     </header>
+     <main>
+          @yield('content')
+     </main>
+     <footer>
+          @yield('footer')
+     </footer>
 
+     <script>
+        let listVideo = document.querySelectorAll('.video-list .vid');
+        let mainVideo = document.querySelector('.main-video video');
+        let title     = document.querySelector('.main-video .title');
+    
+        listVideo.forEach(video => {
+             video.onclick = () => {
+                  listVideo.forEach(vid => vid.classList.remove('active'));
+                  video.classList.add('active'); 
+    
+                  if(video.classList.contains('active')){
+                       let src = video.children[0].getAttribute('src');
+                       mainVideo.src = src;
+                       let text = video.children[1].innerHTML;
+                       title.innerHTML = text;
+                  }
+             }
+        });
+    </script>
 
-
-  <script src="../path/to/flowbite/dist/flowbite.js"></script>
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    AOS.init();
-  </script>
-   <script src="https://cdn.tailwindcss.com"></script>
-   <script src="../path/to/flowbite/dist/flowbite.js"></script>
- 
+     <script src="../path/to/flowbite/dist/flowbite.js"></script>
+     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+     <script>
+          AOS.init();
+     </script>
+     <script src="https://cdn.tailwindcss.com"></script>
+     <script src="../path/to/flowbite/dist/flowbite.js"></script>
+     
 </body>
+
 </html>

@@ -12,7 +12,7 @@ class Chapitre extends Model
 {
     use HasFactory;
 
-    public function cours(){
+    public function cour(){
         return $this->belongsTo(Cour::class);
     }
 

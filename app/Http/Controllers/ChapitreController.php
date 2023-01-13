@@ -2,17 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Chapitre;
 use App\Models\Cour;
+use App\Models\Chapitre;
 use Illuminate\Http\Request;
 
-class CourController extends Controller
+class ChapitreController extends Controller
 {
-
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
     /**
      * Display a listing of the resource.
      *
@@ -20,11 +15,16 @@ class CourController extends Controller
      */
     public function index()
     {
-        //
-        $cours = Cour::paginate(4);
+       
 
-        return view('cour.index', compact('cours'));
     }
+
+    public function chapitres($id){
+        $chapitres = Chapitre::where('cour_id', '=', $id);
+
+        return $chapitres;
+    }
+   
 
     /**
      * Show the form for creating a new resource.
@@ -50,29 +50,21 @@ class CourController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Cour  $cour
+     * @param  \App\Models\Chapitre  $chapitre
      * @return \Illuminate\Http\Response
      */
-    public function show(Cour $cour)
+    public function show(Chapitre $chapitre)
     {
         //
-        $cour      =  Cour::find($cour);
-        // $chapitre = new Chapitre();
-        // $chapitres = $chapitre->chapitres($cour);
-
-        dd($chapitres = route('chapitres', 1));
-        
-
-        return view('cour.chapitre', compact('chapitres', 'cour'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Cour  $cour
+     * @param  \App\Models\Chapitre  $chapitre
      * @return \Illuminate\Http\Response
      */
-    public function edit(Cour $cour)
+    public function edit(Chapitre $chapitre)
     {
         //
     }
@@ -81,10 +73,10 @@ class CourController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Cour  $cour
+     * @param  \App\Models\Chapitre  $chapitre
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Cour $cour)
+    public function update(Request $request, Chapitre $chapitre)
     {
         //
     }
@@ -92,10 +84,10 @@ class CourController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Cour  $cour
+     * @param  \App\Models\Chapitre  $chapitre
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Cour $cour)
+    public function destroy(Chapitre $chapitre)
     {
         //
     }

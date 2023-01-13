@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ChapitreController;
 use App\Http\Controllers\CourController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -32,4 +33,6 @@ Route::namespace('App\Http\Controllers\Admin')->prefix('admin')->name('admin.')-
 
 Route::namespace('App\Http\Controllers')->group(function(){
     Route::resource('cour', CourController::class);
+    Route::resource('chapitre', ChapitreController::class);
+    Route::get('chapitre\{id_cour}', [ChapitreController::class, 'chapitres'])->name('chapitres');
 });
