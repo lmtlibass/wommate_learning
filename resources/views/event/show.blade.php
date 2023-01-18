@@ -10,18 +10,46 @@
      .img{
           border-radius: 8px 0 0 8px;
      }
+     h2{
+          color: #0091B1;
+          border-bottom: 3px solid #E5EA00;
+          font-weight: bold;
+     }
+     .ateur{
+          padding: 12px;
+          background: #E5EA00;
+     }
+     .back img{
+          width: 30px;
+          height: 30px;
+          margin-bottom: 2%;
+          cursor: pointer;
+     }
+
 </style>
 
 <div class="flex bg-white w-full h-full border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
      <div class="flex-auto ">
-          <img class="img w-96 h-full object-cover"  src="{{$event->media}}" alt="{{$event->titre}}">
+          <img class="img w-4/5 h-full object-cover"  src="{{$event->media}}" alt="{{$event->titre}}">
      </div>
-     <div class="flex-auto my-10 mx-10 w-96">
-          <h2 class="text-red-300">
+     <div class="flex-auto my-10 mx-10 w-96 flex-col">
+          <div onclick="location.href='{{url('event')}}'" class="back">
+               <img src="{{URL::asset('img/backs.png')}}" alt="">
+          </div>
+
+          <h2 class=" flex-1 mt-5">
                {{$event->title}}</h2>
-          <p class="mt-4">
+          <p class="mt-8 text-left flex-1">
                {{$event->description}}</p>
-          <p class="mt-4">
+          <p class="mt-4 flex-1 text-2xl">
                {{$event->eventDate}}</p>
+          <p class="mt-10 ateur">
+               Auteur: 
+               <strong>
+                    {{$event->user->first_name}} {{$event->user->last_name}}</strong>
+          </p>
+
+         
+          
      </div>
 </div>

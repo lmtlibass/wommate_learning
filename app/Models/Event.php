@@ -9,7 +9,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Event extends Model
 {
     use HasFactory;
-    public function users(){
+
+    protected $guarded = ['id'];
+    protected $with = ['user'];
+
+    public function user(){
         return $this->belongsTo(User::class);
     }
 }
