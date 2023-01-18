@@ -1,9 +1,11 @@
 <?php
 
-use App\Http\Controllers\ChapitreController;
-use App\Http\Controllers\CourController;
+use App\Models\Event;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CourController;
+use App\Http\Controllers\EventController;
+use App\Http\Controllers\ChapitreController;
 // use App\Http\Controllers\Admin\UserController;
 
 /*
@@ -17,8 +19,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::get('/', function () {
-    return view('welcome');
+    $recentEvent = Event::orderBy('created_at', 'desc')->limit(3)->get();
+    return view('welcome', compact('recentEvent'));
 });
 
 Auth::routes();
@@ -35,4 +39,5 @@ Route::namespace('App\Http\Controllers')->group(function(){
     Route::resource('cour', CourController::class);
     Route::resource('chapitre', ChapitreController::class);
     Route::get('chapitres/{id_cour}', [ChapitreController::class, 'chapitres'])->name('chapitres');
+    Route::resource('event', EventController::class);
 });

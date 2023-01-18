@@ -59,11 +59,4 @@
        </div>
      </div>
    </div>
-   <div class="sub-footer w-full p-4">
-     <div class="flex logo-rs" >
-          <a href="#" class="block py-2 pl-3 pr-4 w-9   rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white" aria-current="page">
-              <img src="{{URL::asset('/img/ig.png')}}" alt=""></a>
-          <a href="#" class="block py-2 pl-3 pr-4 w-9   rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white" aria-current="page">
-              <img src="{{URL::asset('/img/twiter.png')}}" alt=""></a>
-      </div>
-   </div>
+   @include('shared.bfooter')

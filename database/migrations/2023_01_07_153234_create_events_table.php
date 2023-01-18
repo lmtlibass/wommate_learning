@@ -15,10 +15,11 @@ return new class extends Migration
     {
         Schema::create('events', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
             $table->string('description');
             $table->string('media');
             $table->dateTime('eventDate');
-            $table->foreignId('cour_id')
+            $table->foreignId('user_id')
                 ->constrained()
                 ->onDelete('cascade')
                 ->onUpdate('cascade');

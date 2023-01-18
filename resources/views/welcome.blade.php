@@ -209,7 +209,7 @@
       </h2>
 
       {{-- cards events --}}
-      {{-- <div class="flex section-card-events pb-5" data-aos="fade-up"
+      <div class="flex section-card-events pb-5" data-aos="fade-up"
       data-aos-anchor-placement="center-bottom">
         @foreach ($recentEvent as $event)
           <div class="flex-auto mx-4 card">
@@ -223,7 +223,7 @@
             </button>
           </div>
         @endforeach
-      </div> --}}
+      </div>
       
     </section>
 

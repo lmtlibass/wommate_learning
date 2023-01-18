@@ -11,81 +11,82 @@ body{
      padding: 10px; 
 }
 
-.container{
+.containers{
      display: grid;
      grid-template-columns: 2fr 1fr;
      gap: 15px;
      align-items: flex-start;
      padding: 5px 5px;
+     margin-top: 10%;
 }
-.container .main-video{
+.containers .main-video{
     background: #fff;
     border-radius: 5px;
     padding: 10px;
 }
-.container .main-video video{
+.containers .main-video video{
     width: 100%;
     border-radius: 5px;
 }
-.container .main-video .title{
+.containers .main-video .title{
     color: #333;
     font-size: 23px;
     padding-top: 15px;
     padding-bottom: 15px;
 }
 
-.container .video-list {
+.containers .video-list {
      background: #fff;
      border-radius: 5px;
      height: 520px;
      width: 400px;
      overflow-x: scroll;
 }
-.container .video-list::webkit-scrollbar {
-     width: 7px;
+.containers .video-list::webkit-scrollbar {
+     width: 5px;
 }
 
-.container .video-list::webkit-scrollbar-track {
+.containers .video-list::webkit-scrollbar-track {
      background-color: #ccc;
      border-radius: 50px;
 }
-.container .video-list::webkit-scrollbar-thumb {
+.containers .video-list::webkit-scrollbar-thumb {
      background-color: #666;
      border-radius: 50px;
 }
 
-.container .video-list .vid video {
+.containers .video-list .vid video {
      width: 160px;
      border-radius: 5px;
 }
 
-.container .video-list .vid{
+.containers .video-list .vid{
      display: flex;
      align-items: center;
      gap:15px;
-     background: #F7F7F7;
+     background: #f7f7f710;
      border-radius: 5px;
      margin: 10px;
      padding: 10px;
-     border: 1px solid rgba(0, 0, 0, 1); 
+     border: 0.5px solid #FA8316; 
      cursor: pointer;
 }
-.container .video-list .vid:hover {
-     background-color: #eee;
+.containers .video-list .vid:hover {
+     background-color: #E5EA00;
 }
-.container .video-list .vid.active {
-     background-color: #2980b9;
+.containers .video-list .vid.active {
+     background-color: #0091B1;
 }
-.container .video-list .vid.active  .title{
+.containers .video-list .vid.active  .title{
      color: #fff;
 }
-.container .video-list .vid  .title{
+.containers .video-list .vid  .title{
      color: #333;
      font-size: 17px;
 }
 
 @media (max-width:991px){
-     .container{
+     .containers{
           display: flex;
           flex-direction: column;
           align-items: center;
@@ -93,7 +94,7 @@ body{
 }
 
 @media (max-width:768){
-     .container{
+     .containers{
           grid-template-columns: 1fr;
           
      }

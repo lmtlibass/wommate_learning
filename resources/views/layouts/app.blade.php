@@ -122,6 +122,8 @@
           @yield('footer')
      </footer>
 
+
+     
      <script>
         let listVideo = document.querySelectorAll('.video-list .vid');
         let mainVideo = document.querySelector('.main-video video');

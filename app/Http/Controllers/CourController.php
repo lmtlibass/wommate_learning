@@ -56,7 +56,7 @@ class CourController extends Controller
     public function show(Cour $cour)
     {
         //
-        return $cour = Cour::find($cour);
+        // return $cour = Cour::find($cour);
         // $chapitre = new Chapitre();
         // $chapitres = $chapitre->chapitres($cour);
   
