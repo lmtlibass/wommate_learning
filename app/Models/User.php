@@ -77,6 +77,12 @@ class User extends Authenticatable
 
         return $this->roles()->where('name', 'admin')->first();
     }
+    // /**
+    //  * Gates pour la poartie admin du site
+    //  */
+    // public function backoffice(){
+    //     return $this->roles()->where('name', 'admin')->first();
+    // }
     
 
 }
