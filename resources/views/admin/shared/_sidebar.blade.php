@@ -12,28 +12,28 @@
      .sidebar a {
           display: block;
           color: #fff;
-          padding: 16px;
+          padding: 8px;
           text-decoration: none;
           display: flex;
           align-items: center;
-          border-bottom: 0.5px solid rgb(223, 223, 223);
+          font-size: 12px;
      }
 
      .sidebar a img {
-          width: 20px;
-          height: 20px;
+          width: 15px;
+          height: 15px;
           margin-right: 5px;
           
      }
 
      .sidebar a.active {
-          border-bottom: 3px solid #E5EA00;
+          background:#E5EA00;
           color: white;
           transition: 2s;
      }
 
      .sidebar a:hover:not(.active) {
-          border-bottom: 3px solid #E5EA00;
+          background:#E5EA00;
           color: #FA8316;
           margin-left: 2%;
           transition: 1s;     
@@ -62,13 +62,13 @@
 </style>
 
 <div class="sidebar">
-     <a  href="{{Route('home')}}">
+     <a  href="{{Route('home')}}" >
           <img src="{{URL::asset('img/home.png')}}" alt="/">Accueil
      </a>
-     <a href="{{Route('admin.user.index')}}" class="active">
+     <a href="{{Route('admin.user.index')}}" class="active mt-5">
           <img src="{{URL::asset('img/users.png')}}" alt=""> User</a>
-     <a href=""> 
+     <a href="" class="mt-1"> 
           <img src="{{URL::asset('img/coursi.png')}}" alt=""> Cours</a>
-     <a href="#about">
+     <a href="" class="mt-1">
           <img src="{{URL::asset('img/eventi.png')}}" alt=""> Evenements</a>
 </div>

@@ -28,6 +28,7 @@ class User extends Authenticatable
         'username',
         'email',
         'password',
+        'password_confirmation'
     ];
 
     /**
@@ -51,7 +52,7 @@ class User extends Authenticatable
 
 
     public function roles(){
-        return $this->belongsToMany(Role::class);
+        return $this->belongsToMany(Role::class, 'role_user', 'user_id', 'role_id')->withTimestamps();
     }
     public function comments(){
         return $this->hasMany(Comment::class);
@@ -64,6 +65,17 @@ class User extends Authenticatable
     }
     public function Events(){
         return $this->hasMany(Event::class);
+    }
+    
+
+    //les autorisations (gates)
+
+    /**
+     * return bool 
+     */
+    public function isAdmin(){
+
+        return $this->roles()->where('name', 'admin')->first();
     }
     
 
