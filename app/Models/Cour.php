@@ -13,7 +13,7 @@ class Cour extends Model
 {
     use HasFactory;
     protected $guarded = ['id'];
-    // protected $with = ['chapitres'];
+    protected $with = ['module'];
 
     public function user(){
         return $this->belongsTo(User::class);

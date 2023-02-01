@@ -40,7 +40,6 @@
                     margin-left: 0;
                }
           }
-
      </style>
 </head>
 
@@ -58,7 +57,30 @@
      </script>
      <script src="https://cdn.tailwindcss.com"></script>
      <script src="../path/to/flowbite/dist/flowbite.js"></script>
+     <script>
+          statut = document.querySelectorAll('.statut');
+          statut.forEach((statut) => {
+               if (statut.innerText == 'publier') {
+                    statut.classList.add('bg-green-500');
+               } else {
+                    statut.classList.add('bg-red-500');
+               }
+          });
 
+          var acc = document.getElementsByClassName("accordion");
+          var i;
+
+          for (i = 0; i < acc.length; i++) {
+               
+                    var link = this.nextElementSibling;
+                    if (panel.style.display === "block") {
+                         panel.style.display = "none";
+                    } else {
+                         panel.style.display = "block";
+                    }
+               
+          }
+     </script>
 </body>
 
 </html>

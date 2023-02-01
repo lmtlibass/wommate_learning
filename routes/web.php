@@ -35,8 +35,12 @@ Route::namespace('App\Http\Controllers\Admin')->prefix('admin')->name('admin.')-
     Route::resource('user', UserController::class);
 });
 
-Route::namespace('App\Http\Controllers')->group(function(){
+Route::namespace('App\Http\Controllers')->prefix('creator')->name('createur.')->middleware('can:creator_access')->group(function(){
     Route::resource('cour', CourController::class);
+});
+
+Route::namespace('App\Http\Controllers')->group(function(){
+    Route::get('mycours', [CourController::class, 'getCours'])->name('mycours');
     Route::resource('chapitre', ChapitreController::class);
     Route::get('chapitres/{id_cour}', [ChapitreController::class, 'chapitres'])->name('chapitres');
     Route::resource('event', EventController::class);

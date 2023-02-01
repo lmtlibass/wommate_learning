@@ -77,6 +77,11 @@ class User extends Authenticatable
 
         return $this->roles()->where('name', 'admin')->first();
     }
+    //gate pour les createurs et administrateur
+    public function isCreator(){
+        return $this->roles()->where('name', 'createur')->first();
+    }
+
     // /**
     //  * Gates pour la poartie admin du site
     //  */

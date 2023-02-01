@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Chapitre;
 use App\Models\Cour;
+use App\Models\Chapitre;
+use App\Models\Module;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class CourController extends Controller
 {
@@ -21,10 +23,19 @@ class CourController extends Controller
     public function index()
     {
         //
-        $cours = Cour::paginate(4);
-
-        return view('cour.index', compact('cours'));
+        if(Gate::denies('creator_access')){
+            abort(403, 'Vous n\'êtes pas autorisé à accéder à ce service');
+            return redirect()->route('/');
+        }
+        
+        //recuperer les cours et les modules rattaché aux cours
+        $cours = Cour::where('user_id', auth()->user()->id)->with('module')->get();
+        
+        return view('creator.cours.show', [
+            'cours' => $cours
+        ]);
     }
+      
 
     /**
      * Show the form for creating a new resource.
@@ -33,7 +44,9 @@ class CourController extends Controller
      */
     public function create()
     {
-        //
+        
+        return view('creator.cours.create');
+        
     }
 
     /**
@@ -44,7 +57,7 @@ class CourController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**
@@ -95,5 +108,14 @@ class CourController extends Controller
     public function destroy(Cour $cour)
     {
         //
+    }
+
+    //recuperer les cours créés par un utilisateur
+
+    public function getCours()
+    {
+        $cours = Cour::paginate(4);
+
+        return view('cour.index', compact('cours'));
     }
 }
