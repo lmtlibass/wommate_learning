@@ -29,7 +29,8 @@ class UsersTableSeeder extends Seeder
         'last_name'     => 'thiam',
         'username'      => 'admin',
         'email'         => 'admin@wommate.com',
-        'password'      => Hash::make('Passer1323')
+        'password'      => Hash::make('Passer1323'),
+        'password_confirmation'      => Hash::make('Passer1323')
     ]);
 
     $createur = User::create([
@@ -37,7 +38,8 @@ class UsersTableSeeder extends Seeder
         'last_name'     => 'drame',
         'username'      => 'createur',
         'email'         => 'dramepapa@wommate.com',
-        'password'      => Hash::make('Passer1323')
+        'password'      => Hash::make('Passer1323'),
+        'password_confirmation'      => Hash::make('Passer1323')
     ]);
 
     $utilisateur = User::create([
@@ -45,7 +47,8 @@ class UsersTableSeeder extends Seeder
         'last_name'     => 'ba',
         'username'      => 'utilisateur',
         'email'         => 'bagora@wommate.com',
-        'password'      => Hash::make('Passer1323')
+        'password'      => Hash::make('Passer1323'),
+        'password_confirmation'      => Hash::make('Passer1323')
     ]);
 
     //attach roles to users

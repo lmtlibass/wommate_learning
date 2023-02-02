@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('cours', function (Blueprint $table) {
             $table->id();
+            $table->string('media');
             $table->string('title');
             $table->longText('description');
             $table->boolean('statut');

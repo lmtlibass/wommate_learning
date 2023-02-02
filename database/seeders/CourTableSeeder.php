@@ -22,45 +22,51 @@ class CourTableSeeder extends Seeder
         
 
         Cour::create([
+            'media'         => 'img/formation.jpg',
             'title'         => 'Debuter avec html',
             'description'   =>  'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolor itaque impedit optio dignissimos repudiandae.',
             'statut'         => true,
-            'user_id'       => User::all()->random()->id,
+            'user_id'       => 1,
             'module_id'     => Module::all()->random()->id,
         ]);
         Cour::create([
+            'media'         => 'img/formation.jpg',
             'title'         => 'Debuter avec css',
             'description'   =>  'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolor itaque impedit optio dignissimos repudiandae.',
             'statut'         => true,
-            'user_id'       => User::all()->random()->id,
+            'user_id'       => 1,
             'module_id'     => Module::all()->random()->id,
         ]);
         Cour::create([
+            'media'         => 'img/formation.jpg',
             'title'         => 'Debuter avec php',
             'description'   =>  'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolor itaque impedit optio dignissimos repudiandae.',
             'statut'         => true,
-            'user_id'       => User::all()->random()->id,
+            'user_id'       => 1,
             'module_id'     => Module::all()->random()->id,
         ]);
         Cour::create([
+            'media'         => 'img/formation.jpg',
             'title'         => 'Debuter avec JavaScript',
             'description'   =>  'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolor itaque impedit optio dignissimos repudiandae.',
             'statut'         => true,
-            'user_id'       => User::all()->random()->id,
+            'user_id'       => 1,
             'module_id'     => Module::all()->random()->id,
         ]);
         Cour::create([
+            'media'         => 'img/formation.jpg',
             'title'         => 'Debuter avec python',
             'description'   => 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolor itaque impedit optio dignissimos repudiandae.',
             'statut'         => true,
-            'user_id'       => User::all()->random()->id,
+            'user_id'       => 1,
             'module_id'     => Module::all()->random()->id,
         ]);
         Cour::create([
+            'media'         => 'img/formation.jpg',
             'title'         => 'Debuter avec laravel',
             'description'   => 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolor itaque impedit optio dignissimos repudiandae.',
             'statut'         => true,
-            'user_id'       => User::all()->random()->id,
+            'user_id'       => 1,
             'module_id'     => Module::all()->random()->id,
         ]);
     }

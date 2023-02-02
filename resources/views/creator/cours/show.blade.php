@@ -9,7 +9,7 @@
           <div class="grid grid-cols-3 gap-4">
                @foreach ($cours as $cour)
                     <div class="mt-5 mx-3 max-w-sm rounded overflow-hidden shadow-lg h-96 cursor-pointer">
-                         <img class="w-full h-40" src="https://via.placeholder.com/60" alt="Sunset in the mountains">
+                         <img class="w-full h-40" src="{{URL::asset($cour->media)}}" alt="Sunset in the mountains">
                          <div class="px-6 py-4">
                               <div class="font-bold text-xl mb-2">{{ $cour->title }}</div>
                               <p class="text-gray-700 text-base">
@@ -31,6 +31,11 @@
                     </div>
                    
                @endforeach
+          </div>
+
+          {{-- pagination --}}
+          <div class="mt-5 mx-auto p-4 max-w-sm rounded overflow-hidden shadow-lg  cursor-pointer">
+               {{ $cours->links() }}
           </div>
      </section>
 @endsection

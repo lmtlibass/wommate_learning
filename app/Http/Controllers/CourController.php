@@ -29,8 +29,8 @@ class CourController extends Controller
         }
         
         //recuperer les cours et les modules rattaché aux cours
-        $cours = Cour::where('user_id', auth()->user()->id)->with('module')->get();
-        
+        $cours = Cour::where('user_id', auth()->user()->id)->with('module')->paginate(9);
+    
         return view('creator.cours.show', [
             'cours' => $cours
         ]);

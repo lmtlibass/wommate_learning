@@ -59,26 +59,32 @@
                     Jango</li>
             </ul>
         </div>
-        <div style="margin-left: 430px;margin-top : 10%; " class="flex-auto flex flex-row flex-wrap" >
+       <div style="margin-left: 430px;margin-top : 10%; " class="flex-auto flex flex-row flex-wrap" >
 
             @foreach ($cours as $cour)
                 <div class="card-cours flex-auto max-w-xs mb-6 p-4 mx-5 bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700" >
+                    <img class="w-full h-40 rounded-lg" src="{{URL::asset($cour->media)}}" alt="Sunset in the mountains">
                     <a href="#">
-                        <h5 class="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
+                        <h5 class="mb-2 text-sm font-semibold tracking-tight text-gray-900 dark:text-white">
                             {{$cour->title}}</h5>
                     </a>
+                    <p class="text-sm text-gray-700 dark:text-gray-200">
+                        {{substr($cour->description, 0,60)}}</p>
                     
-                    <a href="{{route('chapitres', $cour->id)}}" type="button" class="text-white bg-gradient-to-r from-teal-400 via-teal-500 to-teal-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-teal-300 dark:focus:ring-teal-800 font-medium rounded-lg text-sm w-36 text-center " >
+                    <a href="{{route('chapitres', $cour->id)}}" type="button" class="inline-block  text-sm font-semibold text-gray-700 mr-2 mb-2" >
                         Voir cours</a>
-
+                    
                 </div>
 
             @endforeach
-            <div class="  float-right px-14 h-10 w-full">
+            {{-- PAGINATION --}}
+            <div class="mt-5 mx-auto p-4 max-w-sm rounded overflow-hidden shadow-lg  cursor-pointer">
                 {{ $cours->links() }}
-            </div>
-        </div>
+           </div>
+        </div> 
+       
 
+       
         
     </div>
 @endsection
