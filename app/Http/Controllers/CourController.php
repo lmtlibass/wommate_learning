@@ -30,9 +30,10 @@ class CourController extends Controller
         
         //recuperer les cours et les modules rattaché aux cours
         $cours = Cour::where('user_id', auth()->user()->id)->with('module')->paginate(9);
+        
     
         return view('creator.cours.show', [
-            'cours' => $cours
+            'cours'  => $cours
         ]);
     }
       
@@ -44,8 +45,8 @@ class CourController extends Controller
      */
     public function create()
     {
-        
-        return view('creator.cours.create');
+        $modules = Module::all();   
+        return view('creator.cours.create', compact('modules'));
         
     }
 
@@ -58,6 +59,30 @@ class CourController extends Controller
     public function store(Request $request)
     {
         
+      
+        $cour = $request->validate([
+            'title'         => 'required',
+            'description'   => 'required',
+            'module_id'     => 'required',
+        ]);
+        $imageName = time() . '.' . $request->file('media')->extension();   
+        
+        
+
+        $cour = new Cour([
+            'media'         => $request->file('media')->storeAs('cours', $imageName),
+            'title'         => $request->get('title'),
+            'description'   => $request->get('description'),
+            'statut'        => true,
+            'user_id'       => auth()->user()->id,
+            'module_id'     => $request->get('module_id'),
+        ]);
+
+        $cour->save();
+
+        return redirect()->route('createur.chapitre.add', $cour->id)->with('success', 'Le cours a été créé avec succès');
+
+
     }
 
     /**
@@ -115,7 +140,8 @@ class CourController extends Controller
     public function getCours()
     {
         $cours = Cour::paginate(4);
+        $modules = Module::all();
 
-        return view('cour.index', compact('cours'));
+        return view('cour.index', compact('cours', 'modules'));
     }
 }

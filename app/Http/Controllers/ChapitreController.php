@@ -15,30 +15,32 @@ class ChapitreController extends Controller
      */
     public function index()
     {
-       
 
     }
 
-    public function chapitres($id){
+    public function chapitres($id)
+    {
 
-        
+
         $cour = Cour::find($id);
-        
+
         // $chapitres = Chapitre::where('cour_id', '=', $cour->id);
         $chapitres = $cour->chapitres;
- 
+
         return view('cour.chapitre', compact('chapitres', 'cour'));
     }
-   
+
 
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($cour)
     {
         //
+        $cour = Cour::find($cour);
+        return view('creator.cours.createChapitre', compact('cour'));
     }
 
     /**
@@ -47,9 +49,35 @@ class ChapitreController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
-        //
+        
+        $cour = Cour::find($id);
+        
+       
+        $request->validate([
+            'title'         => 'required',
+            'number'        => 'required',
+            'description'   => 'required',
+        ]);
+      $content = time() . '.' . $request->file('content')->extension();   
+    
+
+        Chapitre::create([
+            'title'         => $request->get('title'),
+            'number'        => $request->get('number'),
+            'description'   => $request->get('description'),
+            'content'       => $request->file('content')->storeAs('chapitres', $content),
+            'cour_id'       => $cour->id,
+        ]);
+
+        //move public
+        $request->file('content')->move(public_path('chapitres'), $content);
+
+
+        //return back
+        return redirect()->route('createur.chapitre.add', $cour->id)->with('success', 'Le chapitre a été créé avec succès');
+        
     }
 
     /**

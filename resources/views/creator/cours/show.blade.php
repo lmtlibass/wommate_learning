@@ -2,14 +2,15 @@
 
 @section('content')
 
+
      <!-- component -->
      <script defer src="https://unpkg.com/alpinejs@3.10.2/dist/cdn.min.js"></script>
 
      <section class="antialiased h-screen mt-7 mx-auto" x-data="app">
           <div class="grid grid-cols-3 gap-4">
                @foreach ($cours as $cour)
-                    <div class="mt-5 mx-3 max-w-sm rounded overflow-hidden shadow-lg h-96 cursor-pointer">
-                         <img class="w-full h-40" src="{{URL::asset($cour->media)}}" alt="Sunset in the mountains">
+                    <div class="mt-5 mx-3 max-w-sm rounded overflow-hidden shadow-lg h-96 cursor-pointer" onclick="location.href='{{ route('createur.chapitre.add', $cour->id) }}'">
+                         <img class="w-full h-40" src="{{asset($cour->media)}}" alt="{{$cour->module->moduleName}}">
                          <div class="px-6 py-4">
                               <div class="font-bold text-xl mb-2">{{ $cour->title }}</div>
                               <p class="text-gray-700 text-base">

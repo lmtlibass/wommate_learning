@@ -17,51 +17,16 @@
                 Modules
             </h2>
             <ul class="flex flex-col">
+                @foreach ($modules as $module)
                 <li class="cursor-pointer  hover:bg-[#E5EA00] hover:text-center">
-                    html</li>
-                <li class="cursor-pointer  hover:bg-[#E5EA00] hover:text-center">
-                    css</li>
-                <li class="cursor-pointer  hover:bg-[#E5EA00] hover:text-center">
-                    JavaScrip</li>
-                <li class="cursor-pointer  hover:bg-[#E5EA00] hover:text-center">
-                    Php</li>
-                <li class="cursor-pointer  hover:bg-[#E5EA00] hover:text-center">
-                    JAVA</li>
-                <li class="cursor-pointer  hover:bg-[#E5EA00] hover:text-center">
-                    Python</li>
-                <li class="cursor-pointer  hover:bg-[#E5EA00] hover:text-center">
-                    C#</li>
-                <li class="cursor-pointer  hover:bg-[#E5EA00] hover:text-center">
-                    GO</li>
-                <li class="cursor-pointer  hover:bg-[#E5EA00] hover:text-center">
-                    Ruby</li>
-                <li class="cursor-pointer  hover:bg-[#E5EA00] hover:text-center">
-                    Laravel</li>
-                <li class="cursor-pointer  hover:bg-[#E5EA00] hover:text-center">
-                    Spring</li>
-                <li class="cursor-pointer  hover:bg-[#E5EA00] hover:text-center">
-                    Jango</li>
-                <li class="cursor-pointer  hover:bg-[#E5EA00] hover:text-center">
-                    JAVA</li>
-                <li class="cursor-pointer  hover:bg-[#E5EA00] hover:text-center">
-                    Python</li>
-                <li class="cursor-pointer  hover:bg-[#E5EA00] hover:text-center">
-                    C#</li>
-                <li class="cursor-pointer  hover:bg-[#E5EA00] hover:text-center">
-                    GO</li>
-                <li class="cursor-pointer  hover:bg-[#E5EA00] hover:text-center">
-                    Ruby</li>
-                <li class="cursor-pointer  hover:bg-[#E5EA00] hover:text-center">
-                    Laravel</li>
-                <li class="cursor-pointer  hover:bg-[#E5EA00] hover:text-center">
-                    Spring</li>
-                <li class="cursor-pointer  hover:bg-[#E5EA00] hover:text-center">
-                    Jango</li>
+                    {{$module->moduleName}}</li>
+                @endforeach
             </ul>
         </div>
-       <div style="margin-left: 430px;margin-top : 10%; " class="flex-auto flex flex-row flex-wrap" >
+       <div style="margin-left: 430px;margin-top : 10%; " class="grid grid-cols-2 gap-4" >
 
             @foreach ($cours as $cour)
+            
                 <div class="card-cours flex-auto max-w-xs mb-6 p-4 mx-5 bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700" >
                     <img class="w-full h-40 rounded-lg" src="{{URL::asset($cour->media)}}" alt="Sunset in the mountains">
                     <a href="#">
@@ -78,13 +43,9 @@
 
             @endforeach
             {{-- PAGINATION --}}
-            <div class="mt-5 mx-auto p-4 max-w-sm rounded overflow-hidden shadow-lg  cursor-pointer">
-                {{ $cours->links() }}
-           </div>
         </div> 
-       
-
-       
-        
+        <div class="mt-5 mx-auto mb-5 p-1 w-96 grid grid-cols-1 rounded overflow-hidden shadow-lg  cursor-pointer" >
+            {{ $cours->links() }}
+       </div>
     </div>
 @endsection

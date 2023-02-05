@@ -12,6 +12,14 @@ class Chapitre extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'title',
+        'number',
+        'description',
+        'content',
+        'cour_id'
+    ];
+
     public function cour(){
         return $this->belongsTo(Cour::class);
     }

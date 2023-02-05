@@ -37,11 +37,13 @@ Route::namespace('App\Http\Controllers\Admin')->prefix('admin')->name('admin.')-
 
 Route::namespace('App\Http\Controllers')->prefix('creator')->name('createur.')->middleware('can:creator_access')->group(function(){
     Route::resource('cour', CourController::class);
+    Route::get('chapitre/create/{cour}', [ChapitreController::class, 'create'])->name('chapitre.add');
+    Route::post('chapitre/create/{id}', [ChapitreController::class, 'store'])->name('chapitre.save');
+    Route::resource('chapitre', ChapitreController::class);
 });
 
 Route::namespace('App\Http\Controllers')->group(function(){
     Route::get('mycours', [CourController::class, 'getCours'])->name('mycours');
-    Route::resource('chapitre', ChapitreController::class);
     Route::get('chapitres/{id_cour}', [ChapitreController::class, 'chapitres'])->name('chapitres');
     Route::resource('event', EventController::class);
 });
