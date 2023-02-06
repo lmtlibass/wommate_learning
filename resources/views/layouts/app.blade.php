@@ -98,6 +98,8 @@
      <link href="/css/app.css" rel="stylesheet">
      <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
      <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
      <script>
           tailwind.config = {
                theme: {
@@ -125,20 +127,22 @@
 
      
      <script>
-        let listVideo = document.querySelectorAll('.video-list .vid');
-        let mainVideo = document.querySelector('.main-video video');
-        let title     = document.querySelector('.main-video .title');
+        let listVideo       = document.querySelectorAll('.video-list .vid');
+        let mainVideo       = document.querySelector('.main-video video');
+        let title           = document.querySelector('.main-video .title');
+        let description     = document.querySelector('.main-video .description');
     
         listVideo.forEach(video => {
              video.onclick = () => {
                   listVideo.forEach(vid => vid.classList.remove('active'));
                   video.classList.add('active'); 
-    
+
                   if(video.classList.contains('active')){
                        let src = video.children[0].getAttribute('src');
                        mainVideo.src = src;
                        let text = video.children[1].innerHTML;
                        title.innerHTML = text;
+                       description.innerHTML = video.children[2].innerHTML;
                   }
              }
         });

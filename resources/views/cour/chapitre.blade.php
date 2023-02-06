@@ -23,10 +23,8 @@
 
                          <source src="{{URL::asset('video/vid.mkv')}}" type="video/mp4" />
                     </video>
-                    
-
-                    {{-- <video src="{{url('https://youtu.be/bbnQupMEoow')}}" controls muted autoplay></video>
-                    <h3 class="title">01. Introduction</h3> --}}
+                    <h3 class="title"></h3>
+                    <p class="description block text-sm font-light leading-relaxed mt-0 mb-4 text-pink-800"></p>
                </div>
           </div>
 
@@ -36,10 +34,13 @@
                          <video id="example_video_1" class="video-js vjs-default-skin vjs-big-play-centered"
                          controls preload="auto" height="600" width="980">
 
-                         <source src="/{{$chapitre->content}}" type="video/mp4" />
+                         <source src="{{$chapitre->content}}" type="video/mp4" />
                     </video>
                          {{-- <video src="{{URL::asset('https://youtu.be/bbnQupMEoow')}}" controls muted autoplay></video> --}}
                          <h3 class="title text-sm">{{$chapitre->title}}</h3>
+                         <p class="description hidden">
+                              {{$chapitre->description}}
+                         </p>
                     </div>
                @endforeach
           </div>

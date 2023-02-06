@@ -39,6 +39,7 @@ Route::namespace('App\Http\Controllers')->prefix('creator')->name('createur.')->
     Route::resource('cour', CourController::class);
     Route::get('chapitre/create/{cour}', [ChapitreController::class, 'create'])->name('chapitre.add');
     Route::post('chapitre/create/{id}', [ChapitreController::class, 'store'])->name('chapitre.save');
+    Route::get('chapitre/{cour}', [ChapitreController::class, 'getChapitre'])->name('chapitre.get');
     Route::resource('chapitre', ChapitreController::class);
 });
 

@@ -4,12 +4,27 @@
      <!-- component -->
      <section class="antialiased h-screen mt-7 mx-auto" x-data="app">
           <!-- component -->
-          
           <div class="min-h-screen p-6 bg-white flex items-center justify-center">
                <div class="container max-w-screen-lg mx-auto">
                     <div>
-                         <h2 class="font-semibold text-xl text-gray-600">Gestion cours</h2>
-                         <p class="text-gray-500 mb-6">Ajouter les chapitres</p>
+                         <div class="flex justify-content-between w-full">
+                              <div class="flex-1">
+                                   <h2 class="font-semibold text-xl text-gray-600">Gestion cours</h2>
+                                   <p class="text-gray-500 mb-6">Ajouter les chapitres</p>
+                              </div>
+                              <div class="flex-1">
+                                   <h2 class="font-semibold text-xl text-gray-600">
+                                        <i class="bi bi-calculator"></i> Nombre de chapitres : 
+                                        <span >{{count($cour->chapitres)}}</span>
+                                   </h2>
+                                   </div>
+                              <div class="flex-2">
+                                  <a href="{{ROUTE('createur.chapitre.get', $cour->id)}}"
+                                        class="bg-[#FA8316] cursor-pointer hover:[#0091B1] text-white font-bold py-3 px-4 rounded">
+                                        voir chapitres <i class="bi bi-eye"></i>
+                                  </a>
+                              </div>
+                         </div>
 
                          <div class="bg-white rounded shadow-lg p-4 px-4 md:p-8 mb-6">
                               <div class="lg:col-span-2">
@@ -70,12 +85,12 @@
                                                   <div class="inline-flex items-start">
                                                        <button type="submit"
                                                             class="bg-[#0091B1] hover:[#0091B1] text-white font-bold py-3 px-4 rounded">
-                                                            Envoyer</button>
+                                                            Envoyer  <i class="bi bi-send-fill"></i></button>
                                                   </div>
                                                   <div class="inline-flex items-end">
                                                        <a href="{{ route('createur.cour.index') }}"
                                                             class="bg-[#E5EA00] cursor-pointer hover:[#0091B1] text-white font-bold py-3 px-4 rounded">
-                                                            Terminer</a>
+                                                            Terminer <i class="bi bi-journal-arrow-up"></i></a>
                                                   </div>
                                              </div>
                                    </form>

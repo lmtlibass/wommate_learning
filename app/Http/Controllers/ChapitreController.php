@@ -13,9 +13,11 @@ class ChapitreController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function getChapitre($cour)
     {
-
+        $cour = Cour::find($cour);
+        $chapitres = $cour->chapitres;
+        return view('creator.cours.chapitre', compact('chapitres', 'cour'));
     }
 
     public function chapitres($id)
